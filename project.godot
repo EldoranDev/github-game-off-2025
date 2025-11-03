@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="HyperActive"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://clhqo2sxk8x0w"
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="HyperActive"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Localization/text.de.translation", "res://Localization/text.en.translation")
