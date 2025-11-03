@@ -25,7 +25,7 @@ mesh = SubResource("CapsuleMesh_ww0jn")
 skeleton = NodePath("../..")
 
 [node name="EyesMesh" type="MeshInstance3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52043605, 0.44156134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, -0.45342794)
 material_override = SubResource("StandardMaterial3D_e5kic")
 mesh = SubResource("BoxMesh_vweq0")
 skeleton = NodePath("")
