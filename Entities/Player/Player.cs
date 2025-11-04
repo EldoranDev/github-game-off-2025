@@ -62,6 +62,8 @@ namespace HyperActive.Entities.Player
 
 			Velocity = _targetVelocity;
 			MoveAndSlide();
+
+			UpdateRotation();
         }
 
 		
@@ -80,7 +82,7 @@ namespace HyperActive.Entities.Player
 
 			var collision = space.IntersectRay(rayQuery);
 
-			LookAt(collision["position"].AsVector3(), Vector3.Up);
+			LookAt(collision["position"].AsVector3() + new Vector3(0, 1, 0), Vector3.Up);
         }
 	}
 }
