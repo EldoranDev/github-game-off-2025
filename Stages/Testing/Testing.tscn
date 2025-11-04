@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://clhqo2sxk8x0w"]
+[gd_scene load_steps=7 format=3 uid="uid://clhqo2sxk8x0w"]
 
 [ext_resource type="PackedScene" uid="uid://utcp14gvcqvc" path="res://Entities/Player/Player.tscn" id="1_50n6e"]
+[ext_resource type="Texture2D" uid="uid://8q718cjphnl5" path="res://Stages/Testing/aulez1ph8c8c1.jpeg" id="2_ekg5d"]
+[ext_resource type="Script" uid="uid://bhd30wfdbg4gu" path="res://Utilities/Camera.cs" id="2_fj7at"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yd7sq"]
 size = Vector3(60, 2, 60)
 
-[sub_resource type="BoxMesh" id="BoxMesh_50n6e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8h71"]
+albedo_texture = ExtResource("2_ekg5d")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y77si"]
+lightmap_size_hint = Vector2i(604, 326)
 size = Vector3(60, 2, 60)
 
 [node name="Testing" type="Node3D"]
@@ -20,13 +27,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_yd7sq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("BoxMesh_50n6e")
+transform = Transform3D(0.9999999, 5.4453674e-05, 0.00035396146, -5.4414035e-05, 1, -0.00013850298, -0.00035396757, 0.0001384874, 0.99999994, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_x8h71")
+mesh = SubResource("BoxMesh_y77si")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 3.821371e-15, -3.821371e-15, 4.3711385e-08, 1, 0, -0.99999994, 4.371139e-08, 0, 5.8421865, 0)
+transform = Transform3D(1, 1.6703743e-22, 3.821371e-15, -2.59047e-15, -0.73516303, 0.67789036, 2.809331e-15, -0.67789036, -0.73516315, 0, 5.8421865, 0)
 shadow_enabled = true
 
-[node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(-1, 0, 8.742278e-08, 6.4001455e-08, 0.6812066, 0.7320913, -5.955297e-08, 0.7320913, -0.6812066, 0, 7.3458147, -3.082814)
+[node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("Target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+script = ExtResource("2_fj7at")
+Target = NodePath("../Player")
+Offset = Vector3(0, 7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(-0.99999994, -8.742277e-08, -3.8213705e-15, 0, -4.3711385e-08, 0.9999999, -8.742277e-08, 0.9999999, 4.3711385e-08, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -15)

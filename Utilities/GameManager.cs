@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace HyperActive.Entities.Player
+namespace HyperActive.Utilities
 {
 	public partial class GameManager : Node
 	{
@@ -11,10 +11,5 @@ namespace HyperActive.Entities.Player
         {
 			Instance = this;
         }
-
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
 	}
 }
