@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5ksq03oix8on"]
+
+[ext_resource type="Script" uid="uid://bhd30wfdbg4gu" path="res://Utilities/Camera.cs" id="1_1y87b"]
+[ext_resource type="PackedScene" uid="uid://utcp14gvcqvc" path="res://Entities/Player/Player.tscn" id="2_jpld8"]
+
+[node name="BaseStage" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 6.09812e-22, 3.8213714e-15, -3.5269283e-15, -0.38492355, 0.9229486, 1.470936e-15, -0.9229485, -0.38492352, 0, 5.8421865, 0)
+shadow_enabled = true
+
+[node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("Target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+script = ExtResource("1_1y87b")
+Target = NodePath("../Player")
+Offset = Vector3(0, 7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(-0.99999994, -8.742277e-08, -3.8213705e-15, 0, -4.3711385e-08, 0.9999999, -8.742277e-08, 0.9999999, 4.3711385e-08, 0, 0, 0)
+current = true
+
+[node name="Player" parent="." instance=ExtResource("2_jpld8")]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8q718cjphnl5"
-path.s3tc="res://.godot/imported/aulez1ph8c8c1.jpeg-96e05fb40d936e9113afdec3fa58aee4.s3tc.ctex"
+uid="uid://dgc6nxpigbcdl"
+path.s3tc="res://.godot/imported/Testing_1m x 1m.png-5d7e3dbd7de72784a72cad4f9ddd0bab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Stages/Testing/aulez1ph8c8c1.jpeg"
-dest_files=["res://.godot/imported/aulez1ph8c8c1.jpeg-96e05fb40d936e9113afdec3fa58aee4.s3tc.ctex"]
+source_file="res://Stages/Testing/Testing_1m x 1m.png"
+dest_files=["res://.godot/imported/Testing_1m x 1m.png-5d7e3dbd7de72784a72cad4f9ddd0bab.s3tc.ctex"]
 
 [params]
 
@@ -26,7 +26,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1

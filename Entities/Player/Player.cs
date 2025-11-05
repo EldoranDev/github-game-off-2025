@@ -13,6 +13,9 @@ namespace HyperActive.Entities.Player
 		[Export]
 		public int FallAcceleration { get; set; } = 75;
 
+		[Export(PropertyHint.Layers3DPhysics)]
+		public uint RotationMask;
+
 		private Vector3 _targetVelocity = Vector3.Zero;
 
 		// Called when the node enters the scene tree for the first time.
@@ -69,12 +72,11 @@ namespace HyperActive.Entities.Player
 		
 		private void UpdateRotation()
 		{
-			// TODO: Improve this and refactor where its done
 			var mouse = GetViewport().GetMousePosition();
 
 			var rayOrigin = camera.ProjectRayOrigin(mouse);
 			var rayDirection = rayOrigin + camera.ProjectRayNormal(mouse) * 100;
-			var rayQuery = PhysicsRayQueryParameters3D.Create(rayOrigin, rayDirection, 0xFFFFFF);
+			var rayQuery = PhysicsRayQueryParameters3D.Create(rayOrigin, rayDirection, RotationMask);
 			rayQuery.CollideWithBodies = true;
 			rayQuery.CollideWithBodies = true;
 
@@ -82,7 +84,10 @@ namespace HyperActive.Entities.Player
 
 			var collision = space.IntersectRay(rayQuery);
 
-			LookAt(collision["position"].AsVector3() + new Vector3(0, 1, 0), Vector3.Up);
+			if (collision.ContainsKey("position"))
+            {
+            	LookAt(collision["position"].AsVector3() + new Vector3(0, 1, 0), Vector3.Up);    
+            }
         }
 	}
 }

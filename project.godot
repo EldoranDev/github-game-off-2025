@@ -45,3 +45,8 @@ move_down={
 [internationalization]
 
 locale/translations=PackedStringArray("res://Localization/text.de.translation", "res://Localization/text.en.translation")
+
+[layer_names]
+
+3d_render/layer_1="Floor"
+3d_render/layer_2="Player"
