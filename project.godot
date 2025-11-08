@@ -50,3 +50,5 @@ locale/translations=PackedStringArray("res://Localization/text.de.translation", 
 
 3d_render/layer_1="Floor"
 3d_render/layer_2="Player"
+3d_physics/layer_1="player_hurtbox"
+3d_physics/layer_2="enemy_hurtbox"

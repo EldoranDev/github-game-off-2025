@@ -1,13 +1,10 @@
 using Godot;
 using System;
 
-namespace HyperActive.Common.Hurtbox
+namespace HyperActive.Entities
 {
-	[Tool]
-	[GlobalClass]
-	public partial class Hurtbox : Area3D
+	public partial class Hitbox : Area3D
 	{
-
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{

@@ -1,17 +1,14 @@
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Transactions;
 using Godot;
 
 namespace HyperActive.Entities.Player
 {
 
-	public partial class Player : CharacterBody3D
+	public partial class Player : Entity
 	{
 		private Camera3D camera;
-
-		[Export]
-		public int Speed { get; set; } = 14;
-		// The downward acceleration when in the air, in meters per second squared.
-		[Export]
-		public int FallAcceleration { get; set; } = 75;
 
 		[Export(PropertyHint.Layers3DPhysics)]
 		public uint RotationMask;
@@ -21,13 +18,14 @@ namespace HyperActive.Entities.Player
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			base._Ready();
+			
 			camera = GetViewport().GetCamera3D();
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
 		public override void _Process(double delta)
 		{
-
 		}
 
         public override void _PhysicsProcess(double delta)
@@ -60,8 +58,8 @@ namespace HyperActive.Entities.Player
 				direction = direction.Normalized();
 			}
 
-			_targetVelocity.X = direction.X * Speed;
-			_targetVelocity.Z = direction.Z * Speed;
+			_targetVelocity.X = direction.X * Stats.Speed;
+			_targetVelocity.Z = direction.Z * Stats.Speed;
 
 			Velocity = _targetVelocity;
 			MoveAndSlide();
