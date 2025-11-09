@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using HyperActive.Entities.Modification;
+using HyperActive.Utilities;
 
 namespace HyperActive.Entities.Player.Modifications
 {
@@ -24,6 +25,8 @@ namespace HyperActive.Entities.Player.Modifications
         {
 			result.FlatHealth += 10;
 			result.FlatSpeed += 14;
+
+			// GameManager.Instance.MPHActive = true;
         }
     }
 }

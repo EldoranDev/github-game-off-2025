@@ -1,0 +1,6 @@
+[gd_resource type="Environment" format=3 uid="uid://d3hyym2xrvhdi"]
+
+[resource]
+tonemap_mode = 2
+adjustment_enabled = true
+adjustment_saturation = 0.5

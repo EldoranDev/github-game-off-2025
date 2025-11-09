@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5svoervgrg1w"]
+
+[ext_resource type="Script" uid="uid://bn4hey1wq56i1" path="res://Globals/GameManager.cs" id="1_nftoj"]
+[ext_resource type="Script" uid="uid://dy5jpknmpl4wl" path="res://Globals/AudioManager.cs" id="1_noft0"]
+[ext_resource type="AudioStream" uid="uid://c2yn5mvtgp24x" path="res://Assets/Audio/Music/Cyberpunk Moonlight Sonata v2.mp3" id="3_ibbds"]
+[ext_resource type="Script" uid="uid://cvpht7tr6ner8" path="res://Globals/SceneManager.cs" id="3_le7du"]
+
+[node name="Globals" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_nftoj")
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("1_noft0")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("3_ibbds")
+autoplay = true
+bus = &"Music"
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("3_le7du")

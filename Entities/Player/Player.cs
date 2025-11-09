@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Transactions;
 using Godot;
+using HyperActive.Utilities;
 
 namespace HyperActive.Entities.Player
 {
@@ -57,6 +58,11 @@ namespace HyperActive.Entities.Player
 			{
 				direction = direction.Normalized();
 			}
+
+			if (Input.IsActionJustPressed("toggle_mph"))
+            {
+				GameManager.Instance.MPHActive = !GameManager.Instance.MPHActive;
+            }
 
 			_targetVelocity.X = direction.X * Stats.Speed;
 			_targetVelocity.Z = direction.Z * Stats.Speed;

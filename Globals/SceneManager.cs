@@ -15,6 +15,9 @@ namespace HyperActive.Utilities
 			Instance = this;
 
 			CurrentScene = GetTree().Root.GetChild(-1);
+
+			SetProcess(false);
+			SetPhysicsProcess(false);
 		}
 
 		public void GotoScene(string path)

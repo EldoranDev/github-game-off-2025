@@ -1,8 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://clhqo2sxk8x0w"]
+[gd_scene load_steps=13 format=3 uid="uid://clhqo2sxk8x0w"]
 
 [ext_resource type="PackedScene" uid="uid://utcp14gvcqvc" path="res://Entities/Player/Player.tscn" id="1_50n6e"]
 [ext_resource type="Texture2D" uid="uid://dgc6nxpigbcdl" path="res://Stages/Testing/Testing_1m x 1m.png" id="2_ekg5d"]
-[ext_resource type="Script" uid="uid://bhd30wfdbg4gu" path="res://Utilities/Camera.cs" id="2_fj7at"]
+[ext_resource type="Texture2D" uid="uid://bsdgr5310sbxs" path="res://Stages/Testing/Testing_1m x 1m - orange.png" id="2_y77si"]
+[ext_resource type="Environment" uid="uid://ccwt0jxq4lli4" path="res://Assets/Environments/env_default.tres" id="4_x8h71"]
+[ext_resource type="Script" uid="uid://cwuvet1c4ar0r" path="res://Camera/FollowCamera.cs" id="4_y77si"]
+[ext_resource type="Environment" uid="uid://d3hyym2xrvhdi" path="res://Assets/Environments/env_mps.tres" id="6_8ikue"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y77si"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ikue"]
+albedo_texture = ExtResource("2_y77si")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6l2eg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yd7sq"]
 size = Vector3(60, 2, 60)
@@ -22,6 +32,18 @@ size = Vector3(60, 2, 60)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0556611, 0)
 RotationMask = 1
 
+[node name="Block" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5134978, -3.0231764)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block"]
+shape = SubResource("BoxShape3D_y77si")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Block"]
+transform = Transform3D(0.9999999, 5.4453674e-05, 0.00035396146, -5.4414035e-05, 1, -0.00013850298, -0.00035396757, 0.0001384874, 0.99999994, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8ikue")
+mesh = SubResource("BoxMesh_6l2eg")
+
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 collision_layer = 3
@@ -40,9 +62,11 @@ shadow_enabled = true
 
 [node name="CameraPivot" type="Marker3D" parent="." node_paths=PackedStringArray("Target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
-script = ExtResource("2_fj7at")
+script = ExtResource("4_y77si")
 Target = NodePath("../Player")
-Offset = Vector3(0, 7, 0)
+DefaultEnvironment = ExtResource("4_x8h71")
+MPHEnvironment = ExtResource("6_8ikue")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(-0.99999994, -8.742277e-08, -3.8213705e-15, 0, -4.3711385e-08, 0.9999999, -8.742277e-08, 0.9999999, 4.3711385e-08, 0, 0, 0)
+environment = ExtResource("4_x8h71")
