@@ -1,2 +1,6 @@
 keys,en,de
 TITLE, "HyperActive", "HyperActive"
+UI_START_GAME, "Start Game", "Spiel Starten"
+UI_OPTIONS, "Options", "Optionen"
+UI_EXIT, "Exit", "Beenden"
+UI_BACK, "Back", "Zurück"

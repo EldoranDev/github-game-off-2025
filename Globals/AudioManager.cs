@@ -26,8 +26,13 @@ public partial class AudioManager : Node
 		_busIndex = AudioServer.GetBusIndex("Game");
 		_backgroundPlayer = (AudioStreamPlayer) GetChild(0);
 
-		GameManager.Instance.MPHStatusChanged += HandleMPHchange;
+		if (GameManager.Instance == null)
+		{
+			Debug.WriteLine("GameManger wasn't initialised");
+			return;
+		}
 
+		GameManager.Instance.MPHStatusChanged += HandleMPHchange;
 		HandleMPHchange(GameManager.Instance.MPHActive);
 	}
 

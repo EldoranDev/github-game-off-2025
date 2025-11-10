@@ -22,7 +22,7 @@ namespace HyperActive.Utilities
 
 		public void GotoScene(string path)
 		{
-			CallDeferred(MethodName.DeferredGotoScene);
+			CallDeferred(MethodName.DeferredGotoScene, path);
 
 		}
 		

@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqrbsqh7csq1p"]
+
+[ext_resource type="Script" uid="uid://cmcjm40y54v28" path="res://Stages/MainMenu.cs" id="1_473rl"]
+[ext_resource type="Texture2D" uid="uid://dgc6nxpigbcdl" path="res://Stages/Testing/Testing_1m x 1m.png" id="1_uahxu"]
+[ext_resource type="StyleBox" uid="uid://e8yk6vkutit0" path="res://Assets/UI/Buttons/normal.tres" id="2_ta6eh"]
+[ext_resource type="StyleBox" uid="uid://cqn2es2lns2tu" path="res://Assets/UI/Buttons/press.tres" id="2_wvfdh"]
+[ext_resource type="StyleBox" uid="uid://cxnu1nt46uqq" path="res://Assets/UI/Buttons/hover.tres" id="4_v8rri"]
+[ext_resource type="StyleBox" uid="uid://448lywvjyile" path="res://Assets/UI/Buttons/focus.tres" id="5_v8rri"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b37jj"]
+texture = ExtResource("1_uahxu")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0.5409905, 0.5409905, 0.5409905, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_473rl")
+StartScene = "uid://clhqo2sxk8x0w"
+OptionsScene = "uid://colryhyc0ssw3"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b37jj")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.75
+offset_top = -37.0
+offset_right = 157.75
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Start" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_ta6eh")
+theme_override_styles/pressed = ExtResource("2_wvfdh")
+theme_override_styles/hover = ExtResource("4_v8rri")
+theme_override_styles/focus = ExtResource("5_v8rri")
+text = "UI_START_GAME"
+
+[node name="Options" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_ta6eh")
+theme_override_styles/pressed = ExtResource("2_wvfdh")
+theme_override_styles/hover = ExtResource("4_v8rri")
+theme_override_styles/focus = ExtResource("5_v8rri")
+text = "UI_OPTIONS"
+
+[node name="Exit" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_ta6eh")
+theme_override_styles/pressed = ExtResource("2_wvfdh")
+theme_override_styles/hover = ExtResource("4_v8rri")
+theme_override_styles/focus = ExtResource("5_v8rri")
+text = "UI_EXIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -226.0
+offset_right = 108.5
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "HyperActive"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -37.0
+offset_right = 170.0
+grow_vertical = 0
+text = "v0.1-dev"
+vertical_alignment = 1
+
+[connection signal="pressed" from="Menu/Start" to="." method="on_start_pressed"]
+[connection signal="pressed" from="Menu/Options" to="." method="on_options_pressed"]
+[connection signal="pressed" from="Menu/Exit" to="." method="on_exit_pressed"]

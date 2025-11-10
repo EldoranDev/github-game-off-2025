@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HyperActive"
-run/main_scene="uid://clhqo2sxk8x0w"
+run/main_scene="uid://cqrbsqh7csq1p"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
