@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://utcp14gvcqvc"]
+[gd_scene load_steps=10 format=3 uid="uid://utcp14gvcqvc"]
 
 [ext_resource type="Script" uid="uid://ddkavo5iidesc" path="res://Entities/Player/Player.cs" id="1_e5kic"]
 [ext_resource type="Resource" uid="uid://cp2lu7brcnnng" path="res://Entities/Player/stats.tres" id="2_ww0jn"]
 [ext_resource type="Script" uid="uid://qws62pj7f31n" path="res://Entities/Modification/ModificationManager.cs" id="3_vweq0"]
-[ext_resource type="Script" uid="uid://npfcnhjfcknp" path="res://Entities/Player/Modifications/MPH.cs" id="4_1des2"]
+[ext_resource type="Script" uid="uid://dxjhy2cj3iy4c" path="res://Entities/Hurtbox.cs" id="5_an6q6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5kic"]
 
@@ -15,7 +15,11 @@ albedo_color = Color(0.3854925, 0.38549247, 0.38549247, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_vweq0"]
 size = Vector3(0.5, 0.2, 0.2)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t38ms"]
+
 [node name="Player" type="CharacterBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 script = ExtResource("1_e5kic")
 Stats = ExtResource("2_ww0jn")
 
@@ -39,6 +43,10 @@ skeleton = NodePath("")
 script = ExtResource("3_vweq0")
 metadata/_custom_type_script = "uid://qws62pj7f31n"
 
-[node name="MPH" type="Node" parent="ModificationManager"]
-script = ExtResource("4_1des2")
-metadata/_custom_type_script = "uid://npfcnhjfcknp"
+[node name="Hurtbox" type="Area3D" parent="."]
+script = ExtResource("5_an6q6")
+metadata/_custom_type_script = "uid://dxjhy2cj3iy4c"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape3D_t38ms")
+debug_color = Color(0.8, 0, 0, 0.9607843)

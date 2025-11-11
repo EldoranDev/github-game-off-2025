@@ -1,18 +1,42 @@
+using System.Diagnostics;
 using Godot;
-using System;
 
 namespace HyperActive.Entities
 {
+	[GlobalClass]
 	public partial class Hitbox : Area3D
 	{
-		// Called when the node enters the scene tree for the first time.
+		public Stats AttackerStats;
+
 		public override void _Ready()
 		{
-		}
+			Monitorable = false;
+			AreaEntered += OnAreaEntered;
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
+/*
+			switch (AttackerStats.Faction)
+			{
+				case Faction.Player:
+					SetCollisionMaskValue(1, true);
+					break;
+				case Faction.Enemy:
+					SetCollisionMaskValue(2, true);
+					break;
+			}
+*/
 		}
-	}
+		
+		protected void OnAreaEntered(Area3D area)
+        {
+			if (area is not Hurtbox)
+			{
+				Debug.WriteLine("Invalid Hurtbox interaction");
+				return;
+			}
+
+			// TODO: Damage type currently fixed to Melee Attack only 
+			(area as Hurtbox).Attack(AttackerStats);
+        }
+
+    }
 }

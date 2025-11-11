@@ -24,9 +24,7 @@ namespace HyperActive.Entities.Player.Modifications
         public override void Apply(ModificationResult result)
         {
 			result.FlatHealth += 10;
-			result.FlatSpeed += 14;
-
-			// GameManager.Instance.MPHActive = true;
+			GameManager.Instance.MPHActive = true;
         }
     }
 }

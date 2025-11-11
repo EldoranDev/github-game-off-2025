@@ -23,6 +23,13 @@ Globals="*res://Globals/Globals.tscn"
 
 project/assembly_name="HyperActive"
 
+[global_group]
+
+player="The Actual Player"
+enemy="All Enemies"
+npc="All NPCs"
+player_bullet=""
+
 [input]
 
 move_left={
@@ -59,5 +66,8 @@ locale/translations=PackedStringArray("res://Localization/text.de.translation", 
 
 3d_render/layer_1="Floor"
 3d_render/layer_2="Player"
-3d_physics/layer_1="player_hurtbox"
-3d_physics/layer_2="enemy_hurtbox"
+3d_physics/layer_1="enemy_hurtbox"
+3d_physics/layer_2="player_hurtbox"
+3d_physics/layer_3="world"
+3d_physics/layer_4="floor"
+3d_physics/layer_5="player"

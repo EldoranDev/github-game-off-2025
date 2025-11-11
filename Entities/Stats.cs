@@ -1,12 +1,17 @@
-using System;
-using System.Diagnostics;
 using Godot;
 using HyperActive.Entities.Modification;
 
 namespace HyperActive.Entities
 {
+	public enum Faction
+	{
+		Player,
+		Enemy,
+		NPC,
+	}
 
 	[GlobalClass]
+	[Tool]
 	public partial class Stats : Resource
 	{
 		[Export]
@@ -23,6 +28,9 @@ namespace HyperActive.Entities
 
 		[Export]
 		public int BaseSpeed { get; set; }
+
+		[Export]
+		public Faction Faction { get; set; }
 
 		[Signal]
 		public delegate void HealthChangedEventHandler(int health);

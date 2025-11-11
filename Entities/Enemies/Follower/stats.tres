@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://deohqqsfyk4my"]
+
+[ext_resource type="Script" uid="uid://c7kuyqxxjmrj8" path="res://Entities/Stats.cs" id="1_bur65"]
+
+[resource]
+script = ExtResource("1_bur65")
+BaseHealth = 10
+Faction = 1
+metadata/_custom_type_script = "uid://c7kuyqxxjmrj8"

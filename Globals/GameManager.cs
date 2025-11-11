@@ -7,7 +7,7 @@ namespace HyperActive.Utilities
 	{
 		public static GameManager Instance { get; private set; }
 
-		private bool _mphActive = true;
+		private bool _mphActive = false;
 
 		[Signal]
 		public delegate void MPHStatusChangedEventHandler(bool status);

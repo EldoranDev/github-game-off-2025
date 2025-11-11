@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://3ewnw8eev2jj"]
+
+[ext_resource type="Script" uid="uid://ddmujteurim3x" path="res://Entities/Entity.cs" id="1_ut74n"]
+[ext_resource type="Resource" uid="uid://deohqqsfyk4my" path="res://Entities/Enemies/Follower/stats.tres" id="2_etqky"]
+[ext_resource type="Script" uid="uid://qws62pj7f31n" path="res://Entities/Modification/ModificationManager.cs" id="3_p6iu7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_etqky"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etqky"]
+albedo_color = Color(1, 0.31, 0.31, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_etqky"]
+material = SubResource("StandardMaterial3D_etqky")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5sb3n"]
+albedo_color = Color(0.3854925, 0.38549247, 0.38549247, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1m35p"]
+size = Vector3(0.5, 0.2, 0.2)
+
+[node name="Follower" type="CharacterBody3D"]
+script = ExtResource("1_ut74n")
+Stats = ExtResource("2_etqky")
+metadata/_custom_type_script = "uid://ddmujteurim3x"
+
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_etqky")
+
+[node name="Body" type="Node3D" parent="."]
+
+[node name="BodyMesh" type="MeshInstance3D" parent="Body"]
+layers = 2
+mesh = SubResource("CapsuleMesh_etqky")
+skeleton = NodePath("../..")
+
+[node name="EyesMesh" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, -0.45342794)
+material_override = SubResource("StandardMaterial3D_5sb3n")
+mesh = SubResource("BoxMesh_1m35p")
+skeleton = NodePath("")
+
+[node name="ModificationManager" type="Node" parent="."]
+script = ExtResource("3_p6iu7")
+metadata/_custom_type_script = "uid://qws62pj7f31n"
